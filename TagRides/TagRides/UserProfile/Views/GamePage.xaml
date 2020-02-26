@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:GameViews="clr-namespace:TagRides.Game.Views"
+             x:Class="TagRides.UserProfile.Views.GamePage"
+             Title="Game Page">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <GameViews:PointTrackerView PointTracker="{Binding Level}"
+                                            LabelText="Level"/>
+
+                <GameViews:PointTrackerView PointTracker="{Binding Kingdom}"
+                                            LabelText="Kingdom"/>
+
+                <StackLayout IsVisible="{Binding Faction, Converter={StaticResource ObjectToBool}}">
+                    <Label Text="Your Faction:"
+                           HorizontalOptions="CenterAndExpand"/>
+                    <GameViews:FactionIconView Faction="{Binding Faction, Converter={StaticResource NameToFaction}}"
+                                               HorizontalOptions="CenterAndExpand">
+                        <GameViews:FactionIconView.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="2"
+                                                  Tapped="OnFactionDoubleTapped"/>
+                        </GameViews:FactionIconView.GestureRecognizers>
+                    </GameViews:FactionIconView>
+                </StackLayout>
+
+                <StackLayout IsVisible="{Binding Faction, Converter={StaticResource NullObjectToBool}}">
+                    <Label Text="Select a Faction:"
+                           HorizontalOptions="CenterAndExpand"/>
+                    <GameViews:FactionPicker x:Name="factionPicker"
+                                             SelectionChanged="OnFactionSelected"
+                                             HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <Label Text="Inventory:"
+                       HorizontalOptions="Center"
+                       Style="{DynamicResource BigTitle}"/>
+                <GameViews:GameInventoryView Inventory="{Binding Inventory}"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

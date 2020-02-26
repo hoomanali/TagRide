@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TagRides.Game.Views.PointTrackerView">
+    <ContentView.Content>
+        <StackLayout x:Name="mainStack"
+                     Padding="20"
+                     Margin="4">
+            <Label x:Name="TrackerName"
+                   Text="Level"
+                   FontSize="Medium"
+                   HorizontalOptions="StartAndExpand"/>
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Fill">
+                <ProgressBar x:Name="progressBar"
+                             ProgressColor="AntiqueWhite"
+                             HorizontalOptions="FillAndExpand"
+                             Progress="{Binding LevelProgress}"/>
+                <Label Text="LVL"
+                       HorizontalOptions="End"/>
+                <Label Text="{Binding Level}"
+                       HorizontalOptions="End"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Exp: "
+                   FontSize="Micro"
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Points}"
+                   FontSize="Micro"
+                   HorizontalOptions="Start"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

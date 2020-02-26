@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:game="clr-namespace:TagRides.Game.Views"
+             x:Class="TagRides.NewUser.FactionInsert">
+    <ContentPage.Content>
+        <StackLayout Style="{DynamicResource Key=ProfileCreationStackLayout}">
+            <Label Text="TagRides" Style="{DynamicResource Key=BigTitle}"
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="0, 30"/>
+            <Label Text="Select a faction:"
+                   HorizontalOptions="CenterAndExpand"/>
+            <Button Text="Why?"
+                    Clicked="OnWhyClicked"
+                    HorizontalOptions="CenterAndExpand"/>
+
+            <game:FactionPicker x:Name="factionPicker"/>
+
+            <Button Text="Next"
+                    HorizontalOptions="EndAndExpand"
+                    VerticalOptions="EndAndExpand"
+                    Clicked="OnNextClicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

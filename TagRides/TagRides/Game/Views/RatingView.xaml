@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TagRides.Game.Views.RatingView">
+  <ContentView.Content>
+        <StackLayout x:Name="mainStack">
+            <ProgressBar Progress="{Binding Current, FallbackValue=0}"
+                         HorizontalOptions="FillAndExpand"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="# of Ratings: "
+                       HorizontalOptions="Start"/>
+                <Label Text="{Binding TotalRatings, FallbackValue=0}"
+                       HorizontalOptions="Start"/>
+            </StackLayout>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

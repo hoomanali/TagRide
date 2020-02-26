@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:util="clr-namespace:TagRides.ViewUtilities" x:Class="TagRides.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <FileImageSource x:Key="TemplateImage" File="Avatar.png" />
+            <util:NameToFactionConverter x:Key="NameToFaction" />
+            <util:ObjectToBoolConverter x:Key="ObjectToBool" />
+            <util:NullObjectToBoolConverter x:Key="NullObjectToBool" />
+            <util:PhoneNumberPrettyConverter x:Key="PhoneToPretty" />
+            <!-- Common colors -->
+            <Color x:Key="textColor">#d9e5d6</Color>
+            <Color x:Key="dimTextColor">#90998e</Color>
+            <Color x:Key="mainBackgroundColor">#313E50</Color>
+            <Color x:Key="mainBackgroundColorTrans">#AA313E50</Color>
+            <Color x:Key="secondaryBackgroundColor">#3A435E</Color>
+            <!-- Huge text used to display "TagRides" -->
+            <Style TargetType="Label" x:Key="BigTitle">
+                <Setter Property="TextColor"
+                     Value="{DynamicResource Key=textColor}" />
+                <Setter Property="FontFamily" Value="Montserrat" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize">
+                    <OnPlatform x:TypeArguments="x:Double" iOS="72" Android="30" />
+                </Setter>
+            </Style>
+            <!-- Big text used to display headings under a BigTitle -->
+            <Style TargetType="Label" x:Key="BigHeading">
+                <Setter Property="TextColor"
+                     Value="{DynamicResource Key=textColor}" />
+                <Setter Property="FontFamily" Value="Montserrat" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize">
+                    <OnPlatform x:TypeArguments="x:Double" iOS="20" Android="10" />
+                </Setter>
+            </Style>
+            <!-- Default Label style -->
+            <Style TargetType="Label" BaseResourceKey="BodyStyle">
+                <Setter Property="TextColor"
+                     Value="{DynamicResource Key=textColor}" />
+                <Setter Property="FontFamily" Value="Montserrat" />
+            </Style>
+            <!-- Default Entry style -->
+            <Style TargetType="Entry">
+                <Setter Property="TextColor"
+                     Value="{DynamicResource Key=textColor}" />
+                <Setter Property="PlaceholderColor"
+                     Value="{DynamicResource Key=dimTextColor}" />
+                <Setter Property="BackgroundColor"
+                     Value="{DynamicResource Key=secondaryBackgroundColor}" />
+            </Style>
+            <!-- Default DataTemplate -->
+            <DataTemplate x:Key="defaultListItemTemplate">
+                <TextCell Text="{Binding Name}"
+                          TextColor="{DynamicResource textColor}"/>
+            </DataTemplate>
+            <!-- Default List View -->
+            <Style TargetType="ListView">
+                <Setter Property="ItemTemplate"
+                        Value="{DynamicResource Key=defaultListItemTemplate}"/>
+            </Style>
+            <!-- Default ContentPage style -->
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="true">
+                <Setter Property="BackgroundColor"
+                     Value="{DynamicResource Key=mainBackgroundColor}" />
+            </Style>
+            <!-- Default action bar style for navigation pages -->
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor"
+                     Value="{DynamicResource Key=secondaryBackgroundColor}" />
+                <Setter Property="BarTextColor"
+                     Value="{DynamicResource Key=textColor}" />
+            </Style>
+            <!-- Default ActivityIndicator style -->
+            <Style TargetType="ActivityIndicator">
+                <Setter Property="Color" Value="{DynamicResource Key=textColor}" />
+            </Style>
+            <!-- Default Button style -->
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor"
+                     Value="{DynamicResource Key=mainBackgroundColor}" />
+                <Setter Property="TextColor"
+                     Value="{DynamicResource Key=textColor}" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="BorderColor" Value="{DynamicResource Key=textColor}" />
+                <Setter Property="BorderWidth" Value="2" />
+                <Setter Property="CornerRadius" Value="0" />
+                <Setter Property="Padding" Value="5,1,5,1" />
+                <Setter Property="Margin" Value="-10,-1,-10,0" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <!-- NOTE: Adding visual state groups to a button will
+                            throw an error because of this style option. If
+                            we want to override these, we need to spend extra
+                            time figuring out how to do that.-->
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="Scale" Value="1.0" />
+                                    <Setter Property="BackgroundColor"
+                                            Value="{DynamicResource Key=mainBackgroundColor}"/>
+                                    <Setter Property="TextColor"
+                                            Value="{DynamicResource Key=textColor}"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor"
+                                         Value="{DynamicResource Key=mainBackgroundColor}" />
+                                    <Setter Property="TextColor"
+                                            Value="{DynamicResource Key=textColor}"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Pressed">
+                                <VisualState.Setters>
+                                    <Setter Property="Scale" Value="0.99" />
+                                    <Setter Property="BackgroundColor"
+                                         Value="{DynamicResource Key=mainBackgroundColorTrans}" />
+                                    <Setter Property="TextColor"
+                                            Value="{DynamicResource Key=textColor}"/>
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+            <!--ProfileCreation StackLayout style-->
+            <Style TargetType="StackLayout" x:Key="ProfileCreationStackLayout">
+                <Setter Property="Padding" Value="20" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

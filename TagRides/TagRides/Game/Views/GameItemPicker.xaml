@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:game="clr-namespace:TagRides.Game.Views"
+             x:Class="TagRides.Game.Views.GameItemPicker">
+  <ContentView.Content>
+        <StackLayout>
+            <Label Text="Pick an item:"/>
+            <ScrollView>
+                <game:GameInventoryView x:Name="inventoryView"
+                                        ShowEmpty="False"
+                                        ShowNoneEffect="False"
+                                        CanSelect="True"/>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="selectButton"
+                        Text="Select"
+                        IsEnabled="False"
+                        BindingContext="{x:Reference inventoryView}"
+                        VerticalOptions="End"
+                        HorizontalOptions="StartAndExpand"
+                        Clicked="OnSelectClicked"/>
+                <Button Text="Cancel"
+                        Clicked="OnCancelClicked"
+                        VerticalOptions="End"
+                        HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

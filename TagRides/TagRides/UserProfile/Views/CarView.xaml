@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TagRides.UserProfile.Views.CarView">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="detailStackStyle" TargetType="StackLayout">
+                <Setter Property="Spacing"
+                        Value="4"/>
+                <Setter Property="Orientation"
+                        Value="Horizontal"/>
+            </Style>
+            <Style x:Key="lableHeaderStyle" TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="Medium"/>
+                <Setter Property="FontAttributes"
+                        Value="Bold"/>
+                <Setter Property="HorizontalOptions"
+                        Value="Start"/>
+                <Setter Property="VerticalOptions"
+                        Value="End" />
+            </Style>
+            <Style x:Key="lableDetailStyle" TargetType="Label">
+                <Setter Property="FontSize"
+                        Value="Micro"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <ContentView.Content>
+        <StackLayout Spacing="2">
+            <StackLayout Orientation="Horizontal"
+                         Spacing="3">
+                <Label Text="{Binding Name}"
+                       Style="{StaticResource lableHeaderStyle}"/>
+                <Label Text="(Default)"
+                       FontSize="Small"
+                       TextColor="Gray"
+                       VerticalOptions="End"
+                       IsVisible="{Binding IsDefault}"/>
+            </StackLayout>
+            <StackLayout Style="{StaticResource detailStackStyle}">
+                <Label Text="Make:"
+                       Style="{StaticResource lableDetailStyle}"
+                       HorizontalOptions="Start"/>
+                <Label Text="{Binding Make}"
+                       Style="{StaticResource lableDetailStyle}"
+                       HorizontalOptions="StartAndExpand"/>
+
+                <Label Text="Model:"
+                       Style="{StaticResource lableDetailStyle}"
+                       HorizontalOptions="End"/>
+                <Label Text="{Binding Model}"
+                       Style="{StaticResource lableDetailStyle}"
+                       HorizontalOptions="End"/>
+            </StackLayout>
+            <StackLayout Style="{StaticResource detailStackStyle}">
+                <Label Text="Plate#:"
+                       Style="{StaticResource lableDetailStyle}"
+                       HorizontalOptions="Start"/>
+                <Label Text="{Binding Plate}"
+                       Style="{StaticResource lableDetailStyle}"
+                       HorizontalOptions="StartAndExpand"/>
+
+                <Label Text="Open Seats:"
+                       Style="{StaticResource lableDetailStyle}"
+                       HorizontalOptions="End"/>
+                <Label Text="{Binding DefaultCapacity}"
+                       Style="{StaticResource lableDetailStyle}"
+                       HorizontalOptions="End"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

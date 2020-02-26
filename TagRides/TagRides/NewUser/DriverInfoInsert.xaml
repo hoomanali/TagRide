@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     x:Class="TagRides.NewUser.DriverInfoInsert">
+    <ContentPage.Content>
+        <StackLayout Style="{DynamicResource Key=ProfileCreationStackLayout}">
+            <StackLayout VerticalOptions="Center">
+                <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="0,100,0,0" />
+                </StackLayout.Padding>
+                <Label Text="TagRides" Style="{DynamicResource Key=BigTitle}"
+                     HorizontalOptions="CenterAndExpand"
+                     VerticalOptions="CenterAndExpand" />
+                <StackLayout>
+                    <StackLayout.Padding>
+                        <OnPlatform x:TypeArguments="Thickness"
+                             iOS="0, 100, 0, 100" />
+                    </StackLayout.Padding>
+                    <StackLayout VerticalOptions="Center">
+                        <StackLayout.Padding>
+                            <OnPlatform x:TypeArguments="Thickness"
+                                 iOS="70,30,70,30" />
+                        </StackLayout.Padding>
+                        <Label Text="Would you like to input your car info to be a driver now?"
+                             Style="{DynamicResource Key=BigHeading}"
+                             HorizontalOptions="Center" />
+                        <Button Text="Yes" Clicked="HyperlinkButton_ClickedYes"
+                             VerticalOptions="Center" Padding="0,0,0,0" />
+                        <Button Text="No" Clicked="HyperlinkButton_ClickedNo"
+                             VerticalOptions="Center" Padding="0,0,0,0" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

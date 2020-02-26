@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:util="clr-namespace:TagRides.ViewUtilities"
+     x:Class="TagRides.NewUser.PhoneInsert">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <util:PhoneNumberPrettyConverter x:Key="PhoneToPretty" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Style="{DynamicResource Key=ProfileCreationStackLayout}">
+                <StackLayout VerticalOptions="Center">
+                    <StackLayout.Padding>
+                        <OnPlatform x:TypeArguments="Thickness" iOS="0,100,0,0" />
+                    </StackLayout.Padding>
+                    <Label Text="TagRides"
+                         Style="{DynamicResource Key=BigTitle}"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand" />
+                    <StackLayout>
+                        <StackLayout.Padding>
+                            <OnPlatform x:TypeArguments="Thickness"
+                                 iOS="0, 100, 0, 100" />
+                        </StackLayout.Padding>
+                        <StackLayout VerticalOptions="Center">
+                            <StackLayout.Padding>
+                                <OnPlatform x:TypeArguments="Thickness"
+                                     iOS="70,30,70,30" />
+                            </StackLayout.Padding>
+                            <Label Text="Please Enter Your Phone #:"
+                                 Style="{StaticResource Key=BigHeading}"
+                                 HorizontalOptions="Center" />
+                            <Entry x:Name="entry" 
+                                   Text="{Binding PhoneNumber, Converter={StaticResource PhoneToPretty}, Mode=TwoWay}"
+                                   Keyboard="Telephone" Placeholder="XXX-XXX-XXXX"
+                                   Completed="OnEntryComplete"/>
+                            <StackLayout>
+                                <Button Text="Next"
+                                        Clicked="OnNext"
+                                        HorizontalOptions="EndAndExpand" />
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

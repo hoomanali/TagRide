@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     x:Class="TagRides.NewUser.NameInsert">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Style="{DynamicResource Key=ProfileCreationStackLayout}">
+                <StackLayout VerticalOptions="Center">
+                    <StackLayout.Padding>
+                        <OnPlatform x:TypeArguments="Thickness" iOS="0,100,0,0" />
+                    </StackLayout.Padding>
+                    <Label Text="TagRides"
+                         Style="{DynamicResource Key=BigTitle}"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand" />
+                    <StackLayout>
+                        <StackLayout.Padding>
+                            <OnPlatform x:TypeArguments="Thickness"
+                                 iOS="0, 100, 0, 100" />
+                        </StackLayout.Padding>
+                        <StackLayout VerticalOptions="Center">
+                            <StackLayout.Padding>
+                                <OnPlatform x:TypeArguments="Thickness"
+                                     iOS="70,30,70,30" />
+                            </StackLayout.Padding>
+                            <Label Text="Please enter your name:"
+                                 Style="{DynamicResource Key=BigHeading}"
+                                 HorizontalOptions="Center" />
+                            <Entry x:Name="firstEntry" 
+                                   Text="{Binding NameFirst, Mode=TwoWay}"
+                                   Placeholder="First Name"
+                                   Completed="OnFirstCompleted"/>
+                            <Entry x:Name="secondEntry"
+                                   Text="{Binding NameLast, Mode=TwoWay}"
+                                   Placeholder="Last Name"
+                                   Completed="OnSecondCompleted"/>
+                            <StackLayout>
+                                <Button Text="Next"
+                                     Clicked="OnNext"
+                                     HorizontalOptions="EndAndExpand" />
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

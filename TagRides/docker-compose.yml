@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  tagrides.server:
+    image: ${DOCKER_REGISTRY-}tagrides
+    build:
+      context: .
+      dockerfile: TagRides.Server/Dockerfile

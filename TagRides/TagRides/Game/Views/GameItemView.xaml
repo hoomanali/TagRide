@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TagRides.Game.Views.GameItemView">
+  <ContentView.Content>
+        <StackLayout Margin="0, 0, 0, 20">
+            <Label x:Name="nameLabel"
+                   HorizontalOptions="Center"/>
+            <Image x:Name="image"
+                   WidthRequest="50"
+                   HeightRequest="50"
+                   Aspect="AspectFit"
+                   HorizontalOptions="Center"/>
+            <Label x:Name="effectLabel"
+                   HorizontalOptions="Center"/>
+            <Label x:Name="countLabel"
+                   HorizontalOptions="Center"/>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

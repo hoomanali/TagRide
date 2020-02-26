@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<viewUtils:SlideView xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:EditViews="clr-namespace:TagRides.EditViews"
+     xmlns:viewUtils="clr-namespace:TagRides.ViewUtilities"
+     xmlns:game="clr-namespace:TagRides.Game.Views"
+     x:Class="TagRides.Rides.Views.RideRequestView">
+    <viewUtils:SlideView.MainContent>
+        <viewUtils:AsyncActivityView x:Name="ActivityOverlay">
+            <ScrollView>
+                <StackLayout Padding="10">
+                    <EditViews:TripPicker StartTapped="OnStartTapped"
+                                          EndTapped="OnEndTapped"/>
+                    
+                    <?Label Text="Departure Time" /?>
+                    <?TimePicker Time="{Binding DepartureTime, Mode=TwoWay}" /?>
+
+                    <Label Text="Equipped Item:"
+                           Style="{DynamicResource BigTitle}"
+                           HorizontalOptions="Center"/>
+                    <game:GameItemView x:Name="itemView"
+                                       Item="{Binding EquippedItem}">
+                        <game:GameItemView.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                              Tapped="OnItemTapped"/>
+                        </game:GameItemView.GestureRecognizers>
+                    </game:GameItemView>
+
+                    <Button Text="Submit"
+                         Command="{Binding SubmitRequestCommand}" />
+                    <Button Text="Cancel"
+                         Command="{Binding CancelRequestCommand}" />
+                </StackLayout>
+            </ScrollView>
+        </viewUtils:AsyncActivityView>
+    </viewUtils:SlideView.MainContent>
+</viewUtils:SlideView>

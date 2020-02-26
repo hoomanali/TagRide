@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     x:Class="TagRides.UserProfile.Views.CarEditPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10">
+                <StackLayout x:Name="mainStack" />
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Default" HorizontalOptions="StartAndExpand" />
+                    <Switch IsToggled="{Binding IsDefault, Mode=TwoWay}"
+                         HorizontalOptions="End" />
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Button x:Name="cancelButton" Text="Cancel"
+                         Clicked="CancelClicked" />
+                    <Button x:Name="confirmButton" Text="Save"
+                         Clicked="ConfirmButtonClicked" />
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

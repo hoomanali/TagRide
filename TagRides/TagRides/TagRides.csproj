@@ -1,0 +1,148 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.5.0.169047" />
+    <PackageReference Include="TK.CustomMap" Version="2.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.6" />
+    <PackageReference Include="Xamarin.Auth" Version="1.6.0.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.0.1" />
+    <PackageReference Include="LiveXAML" Version="2.1.70" />
+    <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
+    <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Maps\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Services\PollNotifications\" />
+    <Folder Include="Rides\States\" />
+    <Folder Include="Places\" />
+    <Folder Include="Places\Autocomplete\" />
+    <Folder Include="Places\Details\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="MainDetailPage.xaml.cs" />
+    <Compile Remove="MainPageViewModel.cs" />
+    <Compile Remove="ViewModels\HomePageViewModel.cs" />
+    <Compile Remove="Localization\Resources.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="MainDetailPage.xaml" />
+    <EmbeddedResource Remove="Localization\Resources.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="NewUser\InsertName.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="EditViews\EditStringView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="EditViews\TripPicker.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Game\Views\FactionIconView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Game\Views\GameInventoryView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Game\Views\GameItemPicker.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Game\Views\GameItemView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Game\Views\PointTrackerView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Game\Views\RatingView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Main\Views\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Maps\TagRideMapView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="NewUser\FactionInsert.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RideSetup\RideOfferPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RideSetup\RideRequestPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="UserProfile\Views\CarEditPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="UserProfile\Views\CarView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="UserProfile\Views\GamePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="UserProfile\Views\UserProfileDisplayPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="NewUser\InsertName.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TagRides.Shared\TagRides.Shared.csproj" />
+    <Folder Include="Login\" />
+    <Folder Include="Login\Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Login\Resources\TagRidesLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Login\OAuthNativeFlow.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Login\Views\OAuthNativeFlowPage.xaml.cs">
+      <DependentUpon>OAuthNativeFlowPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Main\Views\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Main\Views\LocationSearchView.xaml.cs">
+      <DependentUpon>LocationSearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="NewUser\DriverInfoInsert.xaml.cs">
+      <DependentUpon>DriverInfoInsert.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="NewUser\PhotoInsert.xaml.cs">
+      <DependentUpon>PhotoInsert.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Rides\Views\RideOfferView.xaml.cs">
+      <DependentUpon>RideOfferView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Rides\Views\RideRequestView.xaml.cs">
+      <DependentUpon>RideRequestView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <TextStylePolicy TabWidth="4" IndentWidth="4" RemoveTrailingWhitespace="True" FileWidth="80" TabsToSpaces="True" NoTabsAfterNonTabs="True" EolMarker="Unix" scope="text/plain" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+</Project>

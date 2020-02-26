@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<viewUtils:SlideView xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:EditViews="clr-namespace:TagRides.EditViews"
+     xmlns:viewUtils="clr-namespace:TagRides.ViewUtilities"
+     xmlns:game="clr-namespace:TagRides.Game.Views"
+     x:Class="TagRides.Rides.Views.RideOfferView">
+    <viewUtils:SlideView.MainContent>
+        <viewUtils:AsyncActivityView x:Name="ActivityOverlay">
+            <ScrollView>
+                <StackLayout Padding="10">
+                    <EditViews:TripPicker StartTapped="OnStartTapped"
+                                          EndTapped="OnEndTapped"/>
+                    
+                    <?Label Text="Departure Time" /?>
+                    <?TimePicker Time="{Binding DepartureTime, Mode=TwoWay}" /?>
+                    <?DatePicker Date="{Binding DepartureDate, Mode=TwoWay}"/?>
+                    
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Maximum minutes out of your way:" />
+                        <Label Text="{Binding MaxTimeOutOfWay}"
+                             HorizontalOptions="End" />
+                    </StackLayout>
+                    <Slider Value="{Binding MaxTimeOutOfWay, Mode=TwoWay}"
+                         Maximum="20" Minimum="1" MinimumTrackColor="#0fa3b1"
+                         MaximumTrackColor="#0fa3b1" />
+                    
+                    <Label Text="Car:" />
+                    <Picker x:Name="carPicker" Title="Select a Car"
+                         SelectedIndexChanged="CarPicker_SelectedIndexChanged"
+                         SelectedItem="{Binding Car, Mode=TwoWay}" />
+                    
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Seats:" />
+                        <Label Text="{Binding AvailableSeats}"
+                             HorizontalOptions="End" />
+                        <Stepper Value="{Binding AvailableSeats, Mode=TwoWay}"
+                             Increment="1" Minimum="1" Maximum="20"
+                             HorizontalOptions="End" />
+                    </StackLayout>
+
+                    <Label Text="Equipped Item:"
+                           Style="{DynamicResource BigTitle}"
+                           HorizontalOptions="Center"/>
+                    <game:GameItemView x:Name="itemView"
+                                       Item="{Binding EquippedItem}">
+                        <game:GameItemView.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                              Tapped="OnItemTapped"/>
+                        </game:GameItemView.GestureRecognizers>
+                    </game:GameItemView>
+
+                    <Button Text="Submit" Command="{Binding SubmitRequestCommand}" />
+                    <Button Text="Cancel" Command="{Binding CancelRequestCommand}" />
+                </StackLayout>
+            </ScrollView>
+        </viewUtils:AsyncActivityView>
+    </viewUtils:SlideView.MainContent>
+</viewUtils:SlideView>

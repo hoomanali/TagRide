@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewUtils:SlideView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:TK="clr-namespace:TK.CustomMap;assembly=TK.CustomMap"
+             xmlns:viewUtils="clr-namespace:TagRides.ViewUtilities"
+             x:Class="TagRides.Maps.TagRideMapView">
+    <viewUtils:SlideView.MainContent>
+        <AbsoluteLayout x:Name="MapLayout">
+            <TK:TKCustomMap x:Name="Map" 
+                            AbsoluteLayout.LayoutBounds="0,0,1,1"
+                            AbsoluteLayout.LayoutFlags="All"
+                            IsRegionChangeAnimated="True"
+                            MapLongPress="OnMapLongPress"/>
+            <SearchBar x:Name="searchBar"
+                       Placeholder="Enter destination..."
+                       Focused="OnSearchBarFocused"
+                       BackgroundColor="White"
+                       AbsoluteLayout.LayoutFlags="All"
+                       AbsoluteLayout.LayoutBounds="0.5, 0.1, 0.7, 0.06"/>
+            <Label x:Name="statusLabel"
+                   Text="{Binding AppStatus}"
+                   BackgroundColor="{DynamicResource Key=mainBackgroundColor}"
+                   FontAttributes="Bold" FontSize="Large"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   AbsoluteLayout.LayoutBounds="0,0.9,1,0.2"
+                   AbsoluteLayout.LayoutFlags="All">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1"
+                                          Command="{Binding StatusTappedCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+            <Button x:Name="confirmButton"
+                    Text="Confirm"
+                    Clicked="OnConfirmClicked"
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0.5, 0.9, 0.5, 0.1"/>
+            <StackLayout x:Name="rideInProgressControls"
+                         Orientation="Vertical"
+                         VerticalOptions="End"
+                         AbsoluteLayout.LayoutFlags="All"
+                         AbsoluteLayout.LayoutBounds="0.5, 1, 1, 0.4">
+                <Button Text="Finish" Clicked="OnRideFinishClicked" />
+                <Button Text="Cancel" Clicked="OnRideCancelClicked" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </viewUtils:SlideView.MainContent>
+</viewUtils:SlideView>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:utils="clr-namespace:TagRides.ViewUtilities"
+     x:Class="TagRides.Rides.Views.RideConfirmationView">
+    <ContentView.Content>
+        <StackLayout Orientation="Vertical" VerticalOptions="Center">
+            <Label Text="You have been matched!" HorizontalOptions="Center"
+                 XAlign="Center" YAlign="Center" />
+            <ProgressBar Progress="{Binding ExpireProgress}" ProgressColor="Red"
+                 HorizontalOptions="FillAndExpand" />
+            <Label Text="{Binding DriverName, StringFormat='Driver: {0}'}" />
+            <Label Text="{Binding FirstPassengerName, StringFormat='Passenger: {0}'}"
+                 IsVisible="{Binding HasPassengers}" />
+            <Label Text="No passengers!" IsVisible="{Binding NotHasPassengers}" />
+            <Button Text="Confirm" Command="{Binding ConfirmCommand}"
+                 HorizontalOptions="Center" />
+            <Button Text="Decline" Command="{Binding DeclineCommand}"
+                 HorizontalOptions="Center" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

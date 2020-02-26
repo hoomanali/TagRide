@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+     x:Class="TagRides.NewUser.PhotoInsert">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Style="{DynamicResource Key=ProfileCreationStackLayout}">
+                <StackLayout VerticalOptions="Center">
+                    <Label Text="TagRides"
+                         Style="{DynamicResource Key=BigTitle}"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand" />
+                    <StackLayout VerticalOptions="Center">
+                        <StackLayout.Padding>
+                            <OnPlatform x:TypeArguments="Thickness"
+                                 iOS="70,30,70,30" />
+                        </StackLayout.Padding>
+                        <controls:CircleImage x:Name="myCircleImage"
+                             WidthRequest="160" HeightRequest="160"
+                             Aspect="AspectFill" HorizontalOptions="Center" />
+                        <Label Text="Profile Photo"
+                             Style="{DynamicResource Key=BigHeading}"
+                             HorizontalOptions="Center" />
+                        <Button Text="Upload" Clicked="UploadPictureClicked"
+                             VerticalOptions="Center" />
+                        <Button Text="Take Photo" Clicked="TakePictureClicked"
+                             VerticalOptions="Center" />
+                        <StackLayout>
+                            <Button Text="Next" Clicked="HyperlinkButton_Click5"
+                                 HorizontalOptions="EndAndExpand" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:TagRides" x:Class="TagRides.InsertName">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#E5F9E0">
+            <StackLayout.Padding>
+                <OnPlatform x:TypeArguments="Thickness" iOS="0,40,0,40" />
+            </StackLayout.Padding>
+            <StackLayout VerticalOptions="Center">
+                <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness" iOS="0,100,0,0" />
+                </StackLayout.Padding>
+                <Label Text="TagRide" TextColor="#0fa3b1" Font="Bold,Montserrat" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <Label.FontSize>
+                        <OnPlatform x:TypeArguments="x:Double" iOS="72" Android="30" />
+                    </Label.FontSize>
+                </Label>
+                           <StackLayout BackgroundColor="#E5F9E0">
+                    <StackLayout.Padding>
+                        <OnPlatform x:TypeArguments="Thickness" iOS="0, 100, 0, 100" />
+                    </StackLayout.Padding>
+                    <StackLayout BackgroundColor="#E5F9E0" VerticalOptions="Center">
+                        <StackLayout.Padding>
+                            <OnPlatform x:TypeArguments="Thickness" iOS="70,30,70,30" />
+                        </StackLayout.Padding>
+                        <Label Text="Please enter your name:" Font="Bold, Montserrat" TextColor="#db7f67" HorizontalOptions="Center">
+                            <Label.FontSize>
+                                <OnPlatform x:TypeArguments="x:Double" iOS="20" Android="10" />
+                            </Label.FontSize>
+                        </Label>
+                        <Entry Keyboard="Text" Placeholder="First Name" PlaceholderColor="#D3D3D3" BackgroundColor="White" />
+                        <Entry Keyboard="Text" Placeholder="Last Name" PlaceholderColor="#D3D3D3" BackgroundColor="White" />
+                        <StackLayout BackgroundColor="#E5F9E0">
+                            <StackLayout.Padding>
+                                <OnPlatform x:TypeArguments="Thickness" iOS="145,200,0,0" />
+                            </StackLayout.Padding>
+                            <StackLayout>
+                                <Button Text="Next" Opacity=".75" TextColor="#0fa3b1" HorizontalOptions="EndAndExpand" />
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     x:Class="TagRides.Main.Views.ServerConfigPage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="20,20,20,20" Spacing="10"
+             VerticalOptions="Center">
+            <Entry x:Name="AddressField" Keyboard="Url"
+                 Placeholder="http://server-address:port/"
+                 PlaceholderColor="Olive" Completed="HandleServerAddressEntered"
+                 TextChanged="HandleServerAddressChanged"
+                 HorizontalOptions="CenterAndExpand" />
+            <Label IsVisible="false" x:Name="ErrorText" TextColor="Red"
+                 HorizontalOptions="CenterAndExpand" />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Label Text="Ping status:" />
+                <Label Text="(not tested)" x:Name="PingStatus" TextColor="Olive" />
+            </StackLayout>
+            <Button Text="Ping" Clicked="HandlePing" HorizontalOptions="Center" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
