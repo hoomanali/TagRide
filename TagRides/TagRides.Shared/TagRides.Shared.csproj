@@ -8,7 +8,7 @@
     <Folder Include="Geo\QuadtreeInternals\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="WindowsAzure.Storage" Version="9.3.3" />
     <PackageReference Include="gmaps-api-net" Version="0.32.0" />
   </ItemGroup>
